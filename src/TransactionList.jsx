@@ -1,4 +1,4 @@
-function TransactionList({ transactions, categories, filterType, setFilterType, filterCategory, setFilterCategory }) {
+function TransactionList({ transactions, categories, filterType, setFilterType, filterCategory, setFilterCategory, onDeleteTransaction }) {
   let filteredTransactions = transactions;
   if (filterType !== "all") {
     filteredTransactions = filteredTransactions.filter(t => t.type === filterType);
@@ -31,7 +31,7 @@ function TransactionList({ transactions, categories, filterType, setFilterType, 
             <th>Description</th>
             <th>Category</th>
             <th>Amount</th>
-
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -43,7 +43,18 @@ function TransactionList({ transactions, categories, filterType, setFilterType, 
               <td className={t.type === "income" ? "income-amount" : "expense-amount"}>
                 {t.type === "income" ? "+" : "-"}${t.amount}
               </td>
-
+              <td>
+                <button
+                  className="delete-btn"
+                  onClick={() => {
+                    if (window.confirm(`Delete "${t.description}"?`)) {
+                      onDeleteTransaction(t.id);
+                    }
+                  }}
+                >
+                  Delete
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
