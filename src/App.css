@@ -49,6 +49,32 @@ h1 {
   font-weight: bold;
 }
 
+.category-chart {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin-bottom: 24px;
+  background: #fff;
+  overflow-x: auto;
+}
+
+.category-chart h2 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.category-chart .empty-state {
+  color: #898781;
+  font-size: 14px;
+}
+
+.chart-tooltip {
+  background: #fcfcfb;
+  border: 1px solid #c3c2b7;
+  padding: 6px 10px;
+  font-size: 13px;
+  color: #0b0b0b;
+}
+
 .add-transaction {
   border: 1px solid #ddd;
   padding: 16px;
