@@ -3,13 +3,13 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Cell, LabelList } 
 // Fixed hue order per category so a color always identifies the same
 // category, independent of sort order or which categories are present.
 const CATEGORY_COLORS = {
-  food: '#1baf7a',
-  housing: '#2a78d6',
-  utilities: '#eda100',
-  transport: '#4a3aa7',
-  entertainment: '#e87ba4',
-  salary: '#008300',
-  other: '#898781',
+  food: '#3f7d5c',
+  housing: '#3a5a78',
+  utilities: '#a06a1f',
+  transport: '#6a4c93',
+  entertainment: '#b0548c',
+  salary: '#1f6f43',
+  other: '#8a8672',
 };
 
 function CustomTooltip({ active, payload }) {
@@ -56,17 +56,17 @@ function CategoryChart({ transactions }) {
         layout="vertical"
         margin={{ top: 4, right: 40, left: 8, bottom: 4 }}
       >
-        <CartesianGrid horizontal={false} stroke="#e1e0d9" />
-        <XAxis type="number" tick={{ fill: '#898781', fontSize: 12 }} axisLine={{ stroke: '#c3c2b7' }} tickLine={false} />
+        <CartesianGrid horizontal={false} stroke="#d8d4c4" />
+        <XAxis type="number" tick={{ fill: '#666f7c', fontSize: 12 }} axisLine={{ stroke: '#c2beac' }} tickLine={false} />
         <YAxis
           dataKey="category"
           type="category"
           width={100}
-          tick={{ fill: '#0b0b0b', fontSize: 13 }}
-          axisLine={{ stroke: '#c3c2b7' }}
+          tick={{ fill: '#1c2430', fontSize: 13 }}
+          axisLine={{ stroke: '#c2beac' }}
           tickLine={false}
         />
-        <Tooltip content={<CustomTooltip />} cursor={{ fill: '#f0efec' }} />
+        <Tooltip content={<CustomTooltip />} cursor={{ fill: '#eeece3' }} />
         <Bar dataKey="amount" barSize={20} isAnimationActive={false}>
           {data.map((entry) => (
             <Cell key={entry.category} fill={CATEGORY_COLORS[entry.category] || CATEGORY_COLORS.other} />
@@ -75,7 +75,7 @@ function CategoryChart({ transactions }) {
             dataKey="amount"
             position="right"
             formatter={(value) => `$${value.toFixed(0)}`}
-            style={{ fill: '#52514e', fontSize: 12 }}
+            style={{ fill: '#666f7c', fontSize: 12 }}
           />
         </Bar>
       </BarChart>

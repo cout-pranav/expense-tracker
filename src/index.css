@@ -1,3 +1,22 @@
+:root {
+  --paper: #eeece3;
+  --surface: #fffdf8;
+  --ink: #1c2430;
+  --ink-soft: #666f7c;
+  --ink-faint: #9a9d8f;
+  --rule: #d8d4c4;
+  --rule-strong: #c2beac;
+  --credit: #2f6f4e;
+  --credit-soft: #e6efe8;
+  --debit: #9a3324;
+  --debit-soft: #f5e8e3;
+  --brass: #a06a1f;
+  --focus-ring: #2f6f4e;
+
+  --font-display: "Source Serif 4", Georgia, serif;
+  --font-body: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +24,30 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-  color: #333;
+  font-family: var(--font-body);
+  background-color: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
 }
